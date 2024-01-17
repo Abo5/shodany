@@ -1,0 +1,40 @@
+# Ignore Ruby and Rails specific files
+*.rbc
+*.log
+*.gem
+*.rdoc
+db/*.sqlite3
+db/*.sqlite3-journal
+tmp/
+coverage/
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore files related to version control systems
+.git/
+.svn/
+.hg/
+
+# Ignore bundler config and installed gems
+/.bundle
+/vendor/bundle
+
+# Ignore specific environment configuration files
+.env
+.secret
+
+# Ignore IDE-specific files (e.g., for VSCode, RubyMine, SublimeText)
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.vscode/
+
+# Other common ignore patterns
+.DS_Store
+Thumbs.db
