@@ -1,0 +1,31 @@
+# .github/workflows/release.yml
+
+name: Release
+
+on:
+  push:
+    branches:
+      - main # Adjust if you have a different release branch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # Fetches all history for all tags and branches
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0 # Specify your Ruby version
+        bundler-cache: true # Caches installed gems automatically
+
+    - name: Build Gem
+      run: gem build *.gemspec
+
+    - name: Publish to RubyGems
+      run: gem push *.gem --key rubygems_api_key
+      env:
+        RUBYGEMS_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
