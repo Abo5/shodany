@@ -29,4 +29,3 @@ jobs:
       run: gem push *.gem --key rubygems_api_key
       env:
         RUBYGEMS_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
-
