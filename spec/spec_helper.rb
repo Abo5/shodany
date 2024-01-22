@@ -1,12 +1,12 @@
 require 'rspec'
 require 'webmock/rspec'
 
-# تعطيل الاتصالات الخارجية الحقيقية وتمكين WebMock
+# Disable real external connections and enable WebMock
 WebMock.disable_net_connect!(allow_localhost: true)
 
-# تكوين RSpec
+# Configure RSpec
 RSpec.configure do |config|
-  # إضافة بعض السلوكيات الإعدادية لـ RSpec
+  # Add some setup behaviors for RSpec
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -17,9 +17,9 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  # إعدادات إضافية محتملة لتحسين الاختبارات
-  # ...
+  # Possible additional settings to improve tests
 
-  # الإعداد الخاص بـ WebMock (إذا كان مطلوبًا)
+
+  # WebMock-specific setup (if required)
   config.include WebMock::API
 end
