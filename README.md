@@ -1,5 +1,6 @@
-
----
+[![Gem Version](https://badge.fury.io/rb/shodany.svg)](https://badge.fury.io/rb/shodany)
+[![Yard Docs](http://img.shields.io/badge/shodany-docs-blue.svg)](https://www.rubydoc.info/gems/shodany/1.0)
+[![CI](https://github.com/Abo5/shodany/actions/workflows/ci.yml/badge.svg)](https://github.com/Abo5/shodany/actions)
 
 # Shodany
 
