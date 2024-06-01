@@ -41,9 +41,6 @@ Or install it yourself as:
 ```bash
 $ gem install shodany
 ```
-
-## Usage
-
 ### Setting Up
 
 ```ruby
@@ -52,6 +49,63 @@ require 'shodany'
 client = Shodany.new("YOUR_SHODAN_API_KEY")
 ```
 
+## Usage
+```ruby
+# get_domain_info_example.rb
+# Specify the domain for which you want information
+domain = "example.com"
+
+# Begin exception handling
+begin
+  # Get domain information from Shodan
+  domain_info = client.get_domain_info(domain)
+  # Print the domain information
+  puts domain_info
+# Rescue block to catch and handle any errors
+rescue Shodany::Error => e
+  # Output the error message
+  puts "An error occurred: #{e.message}"
+end
+```
+
+```ruby
+ip = "8.8.8.8"
+
+# Begin exception handling
+begin
+  # Retrieve host information for the specified IP
+  info = client.get_host_info(ip)
+  # Print the retrieved information
+  puts info
+# Rescue block to catch and handle any errors
+rescue Shodany::Error => e
+  # Output the error message
+  puts "An error occurred: #{e.message}"
+end
+```
+
+```ruby
+client = client.get_host_info("host ip e.g 192.168.10.100")
+results = JSON.parse(client)
+# Begin exception handling
+begin
+  # Retrieve host information for the specified IP
+  puts "IP: #{results['ip_str']}"
+  puts "Organization: #{results['org']}"
+  puts "Operating System: #{results['os']}"
+  puts "Ports: #{results['ports'].join(', ')}"
+rescue Shodany::Error => e
+  puts "An error occurred: #{e.message}"
+end
+```
+```ruby
+results = JSON.parse(client.search_exploits("log4j"))
+
+results['matches'].each do |match|
+  match.each { |key, value| puts "#{key}: #{value.is_a?(Array) ? value.join(', ') : value}" }
+  puts "\n"
+end
+```
 ### [Other Usage Instructions]
 
 ## Examples
